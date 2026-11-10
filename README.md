@@ -3,6 +3,12 @@
 ### Project Overview
 This AI project uses some basic parameters of body build and exercise and diet routine to predict how much calorie an athlete would burn during their workout session. It uses linear regression to predict calorie expense based on different physical and exercise related parameters.
 
+### Members:
+| _Piyush Tiwari_ | 2026ESB1487 | Documentation Lead |
+| _Devansh Singh Vardhan_ | 2026EEB1342 | Execution Lead |
+| _Avinash_ | 2026AIB1025 | PPT Lead |
+| _Sunnam Jagadeesh_ | 2026MCB1575 | Video Lead |
+
 ### Languages and library used
 - Python
 - Pandas
@@ -76,21 +82,9 @@ The model is evaluated using:
 
 ### Output
 The project predicts the estimated calories burned based on the user's exercise information and displays visualizations to understand the dataset and model performance.
+<img width="818" height="545" alt="image" src="https://github.com/user-attachments/assets/3c9f6cd5-c407-47b8-ba2a-2f10debfc41e" />
 
-
-### Contributions of members:
-1. _Piyush Tiwari_:
-
-   Documentation Lead, created the readme file and handled exploration of dataset before preprocessing in the file data_overview.py
-2. _Jagdeesh Sunnam_:
-
-   Video Lead, Creating a video,  handled the preprocessing part in the file preprocessing.py
-3. _Devansh_:
-
-   Execution Lead, made sure that the file is working properly and gave instructions for this and handled the creation of model in model.py
-4. _Avinash_:
-
-   PPT Lead, created presentation of the project and handled the visualization of data post prediction in visualization.py
+### Link to PPT and Video
 
 ### Disclosing Uses of AI:
  
