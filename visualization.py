@@ -44,6 +44,7 @@ df = pd.read_csv("calories.csv")
 
 # Graph 1: Actual vs Predicted Calories
 
+
 plt.figure(figsize=(8, 5))
 
 plt.scatter(y_test, y_pred, alpha=0.5)
@@ -60,6 +61,7 @@ plt.title("Actual vs Predicted Calories")
 
 plt.tight_layout()
 plt.show()
+
 
 
 # Graph 2: Residual Plot
