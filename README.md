@@ -4,6 +4,8 @@
 This AI project uses some basic parameters of body build and exercise and diet routine to predict how much calorie an athlete would burn during their workout session. It uses linear regression to predict calorie expense based on different physical and exercise related parameters.
 
 ### Members:
+| Name | Entry No. | Role |
+| ---- | --------- | ---- |
 | _Piyush Tiwari_ | 2026ESB1487 | Documentation Lead |
 | _Devansh Singh Vardhan_ | 2026EEB1342 | Execution Lead |
 | _Avinash_ | 2026AIB1025 | PPT Lead |
