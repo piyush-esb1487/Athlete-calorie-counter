@@ -10,7 +10,8 @@ from sklearn.preprocessing import OneHotEncoder
 
 # dataset
 
-df = pd.read_csv("calories.csv")
+import data_overview as d_ov
+df = d_ov.df.copy()
 print("Dataset loaded successfully!")
 print("Initial dataset shape:", df.shape)
 print("Available columns:")
