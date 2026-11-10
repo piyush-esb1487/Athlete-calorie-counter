@@ -62,7 +62,7 @@ predicted_calories = model.predict(user_data)
 print("\n========== PREDICTION RESULT ==========")
 
 print("Predicted Calories Burned:",
-      round(predicted_calories[0], 2))
+      round(abs(predicted_calories[0]), 2))
 
 print("=======================================")
 

@@ -11,6 +11,7 @@ duration_avg = df["Duration"].mean()
 
 # This function is to print basic stuff as and when required
 def basic_info():
+    print(df.head())
     print("Dataset dimensions:", df.shape)
     print("\nColumn names:")
     print(df.columns.tolist())
@@ -44,82 +45,96 @@ def seperating_data(approx_duration=None, approx_weight=None, approx_height=None
         
 
 # Trying to imagine the data on a Bargraph
-def plot_bar(approx_duration=None, approx_weight=None, approx_height=None, approx_age=None, column_to_compare="Duration"):
-    fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(14, 5))
+
+
+def plot_bar(approx_duration=None, approx_weight=None, approx_height=None, approx_age=None, column_to_compare="Duration", axes_to_use=None):
     male_data, female_data = seperating_data(approx_duration, approx_weight, approx_height, approx_age)
-    column_to_compare = "Duration"
+
+    # Male Bar Plot (Top-Left)
     sns.barplot(
-        data=male_data, 
-        x=column_to_compare, 
+        data=male_data,
+        x=column_to_compare,
         y="Calories",
         errorbar=None,
-        ax=axes[0]
-        )
-
-    axes[0].set_title(f"Male - Calories vs {column_to_compare}")
-    axes[0].set_xlabel(column_to_compare)
-    axes[0].set_ylabel("Calories")
-
-    axes[0].tick_params(axis="x", rotation=45)
-
-
-    sns.barplot(
-        data=female_data, 
-        x=column_to_compare, 
-        y="Calories",
-        errorbar=None,
-        ax=axes[1]
-        )
-
-    axes[1].tick_params(axis="x", rotation=45)
-
-    axes[1].set_title(f"Female - Calories vs {column_to_compare}")
-    axes[1].set_xlabel(column_to_compare)
-    axes[1].set_ylabel("Calories")
-    plt.show()
-
-
-# Trying to imagine data on a scatterplot
-def plot_scatter(approx_duration=None, approx_weight=None, approx_height=None, approx_age=None, column_to_compare="Duration"):
-    fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(14, 10))
-    male_data, female_data = seperating_data(
-        approx_duration, approx_weight, approx_height, approx_age
+        ax=axes_to_use[0],
     )
+    axes_to_use[0].set_title(f"Male - Calories vs {column_to_compare}")
+    axes_to_use[0].set_xlabel(column_to_compare)
+    axes_to_use[0].set_ylabel("Calories")
+    axes_to_use[0].tick_params(axis="x", rotation=45)
 
-    # Male Scatter Plot
+    # Female Bar Plot (Top-Right)
+    sns.barplot(
+        data=female_data,
+        x=column_to_compare,
+        y="Calories",
+        errorbar=None,
+        ax=axes_to_use[1],
+    )
+    axes_to_use[1].set_title(f"Female - Calories vs {column_to_compare}")
+    axes_to_use[1].set_xlabel(column_to_compare)
+    axes_to_use[1].set_ylabel("Calories")
+    axes_to_use[1].tick_params(axis="x", rotation=45)
+
+
+def plot_scatter(approx_duration=None, approx_weight=None, approx_height=None, approx_age=None, column_to_compare="Duration", axes_to_use=None):
+    male_data, female_data = seperating_data(approx_duration, approx_weight, approx_height, approx_age)
+
+    # Male Scatter Plot (Bottom-Left)
     sns.scatterplot(
         data=male_data,
         x=column_to_compare,
         y="Calories",
         alpha=0.6,
-        ax=axes[0],
+        ax=axes_to_use[0],
     )
-    axes[0].set_title(f"Male - Calories vs {column_to_compare}")
-    axes[0].set_xlabel(column_to_compare)
-    axes[0].set_ylabel("Calories")
+    axes_to_use[0].set_title(f"Male - Calories vs {column_to_compare}")
+    axes_to_use[0].set_xlabel(column_to_compare)
+    axes_to_use[0].set_ylabel("Calories")
+    axes_to_use[0].tick_params(axis="x", rotation=45)
 
-    axes[0].tick_params(axis="x", rotation=45)
-
-    # Female Scatter Plot
+    # Female Scatter Plot (Bottom-Right)
     sns.scatterplot(
         data=female_data,
         x=column_to_compare,
         y="Calories",
         alpha=0.6,
-        ax=axes[1],
+        ax=axes_to_use[1],
     )
-    
-    axes[1].tick_params(axis="x", rotation=45)
+    axes_to_use[1].set_title(f"Female - Calories vs {column_to_compare}")
+    axes_to_use[1].set_xlabel(column_to_compare)
+    axes_to_use[1].set_ylabel("Calories")
+    axes_to_use[1].tick_params(axis="x", rotation=45)
 
-    axes[1].set_title(f"Female - Calories vs {column_to_compare}")
-    axes[1].set_xlabel(column_to_compare)
-    axes[1].set_ylabel("Calories")
 
-    plt.show()
-
+def set_input(msg: str):
+    take_input = input(msg).strip()
+    return float(take_input) if take_input and take_input != "0" else None
 
 
 if __name__ == "__main__":
-    print(df.head())
-    plot_bar(approx_age=20, approx_height=180)
 
+    # --- This part is for taking all the required inputs
+    age = set_input("Enter age(Put 0 to view data for all ages): ")
+    height = set_input("Enter Height(Put 0 to view data for all Heights): ")
+    weight = set_input("Enter Weight(Put 0 to view data for all Weights): ")
+    duration = set_input("Enter Duration(Put 0 to view data for all Durations): ")
+    default_column_compare = input("Enter default column to compare (Age, Height, Weight, Duration): ").title()
+    # ----------
+
+    # 1. Create 1 single window with 2 rows and 2 columns
+    fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(14, 10))
+
+    # TO show what parameters have been given as fixed inputs
+    params = ""
+        
+    for k, v in [("Age", age), ("Height", height), ("Weight", weight), ("Duration", duration)]:
+        if v is not None:
+            params += f"{k} ~= {v} "
+
+    fig.suptitle(params)
+    plot_bar(duration,weight,height,age,column_to_compare=default_column_compare,axes_to_use=axes[0])
+    plot_scatter(duration,weight,height,age,column_to_compare=default_column_compare,axes_to_use=axes[1])
+
+    plt.tight_layout()
+    plt.show()
