@@ -6,9 +6,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib
+import os
+
+
 
 from pathlib import Path
 from preprocessing import preprocess_data
+
+output_dir = Path(__file__).resolve().parent / "Graphs"
+output_dir.mkdir(exist_ok=True)
 
 
 # Loading trained model
@@ -59,6 +65,8 @@ plt.xlabel("Actual Calories")
 plt.ylabel("Predicted Calories")
 plt.title("Actual vs Predicted Calories")
 
+plt.savefig(output_dir / "Actual vs Predicted Calories" )
+
 plt.tight_layout()
 plt.show()
 
@@ -76,6 +84,8 @@ plt.xlabel("Predicted Calories")
 plt.ylabel("Residuals")
 plt.title("Residual Plot")
 
+plt.savefig(output_dir / "Residual Plot" )
+
 plt.tight_layout()
 plt.show()
 
@@ -89,6 +99,7 @@ sns.histplot(df["Calories"], kde=True)
 plt.xlabel("Calories Burned")
 plt.ylabel("Frequency")
 plt.title("Distribution of Calories")
+plt.savefig(output_dir / "Calories Distribution" )
 
 plt.tight_layout()
 plt.show()
@@ -110,6 +121,7 @@ sns.heatmap(
 )
 
 plt.title("Feature Correlation Heatmap")
+plt.savefig(output_dir / "Correlation Heatmap" )
 
 plt.tight_layout()
 plt.show()
