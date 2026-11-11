@@ -116,9 +116,9 @@ if __name__ == "__main__":
 
     # --- This part is for taking all the required inputs
     age = set_input("Enter age(Put 0 to view data for all ages): ")
-    height = set_input("Enter Height(Put 0 to view data for all Heights): ")
-    weight = set_input("Enter Weight(Put 0 to view data for all Weights): ")
-    duration = set_input("Enter Duration(Put 0 to view data for all Durations): ")
+    height = set_input("Enter Height in cm(Put 0 to view data for all Heights): ")
+    weight = set_input("Enter Weight in kg(Put 0 to view data for all Weights): ")
+    duration = set_input("Enter Duration in seconds(Put 0 to view data for all Durations): ")
     default_column_compare = input("Enter default column to compare (Age, Height, Weight, Duration): ").title()
     # ----------
 
@@ -128,9 +128,9 @@ if __name__ == "__main__":
     # TO show what parameters have been given as fixed inputs
     params = ""
         
-    for k, v in [("Age", age), ("Height", height), ("Weight", weight), ("Duration", duration)]:
+    for k, v in [("Age", age), ("Height in cm", height), ("Weight in kg", weight), ("Duration in s", duration)]:
         if v is not None:
-            params += f"{k} ~= {v} "
+            params += f"{k} ~ {v} "
 
     fig.suptitle(params)
     plot_bar(duration,weight,height,age,column_to_compare=default_column_compare,axes_to_use=axes[0])
