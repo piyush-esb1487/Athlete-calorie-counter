@@ -88,7 +88,7 @@ The model is evaluated using:
 
 ### Output
 The project predicts the estimated calories burned based on the user's exercise information and displays visualizations to understand the dataset and model performance.
-<img width="818" height="545" alt="image" src="https://github.com/user-attachments/assets/3c9f6cd5-c407-47b8-ba2a-2f10debfc41e" />
+<img width="804" height="558" alt="image" src="https://github.com/user-attachments/assets/33aef9f6-583f-49a3-a566-be5f26ce852b" />
 
 ### Link to PPT and Video:
 - Video link (YouTube): https://www.youtube.com/watch?v=P1qo-huYgtw
