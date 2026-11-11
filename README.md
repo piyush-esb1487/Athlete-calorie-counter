@@ -53,6 +53,19 @@ This project uses linear regression to train the model and predict the calories 
 10. Visualize model performance and dataset patterns.
 
 ### Installation
+
+```
+git clone https://github.com/piyush-esb1487/Athlete-calorie-counter
+cd Athlete-calorie-counter
+```
+
+**Create and activate a virtual environment only if required (Optional):**
+```
+python3 -m venv venv
+venv\Scripts\activate # Assumes CMD is being used on windows
+source venv/bin/activate # Assumes linux and macOS
+```
+
 Install the required libraries put in requirements.txt by running this in terminal:
 
 `python3 -m pip install -r requirements.txt`
