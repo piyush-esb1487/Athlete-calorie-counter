@@ -45,7 +45,7 @@ residuals = y_test - y_pred
 
 # Loading dataset
 
-df = pd.read_csv("calories.csv")
+df = pd.read_csv("calories.csv", nrows=500)
 
 
 # Graph 1: Actual vs Predicted Calories
